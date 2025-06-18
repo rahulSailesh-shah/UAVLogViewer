@@ -81,3 +81,4 @@ backend/venv/
 backend/chroma_db/
 backend/processed/
 backend/uploads/
+backend/.env

@@ -12,13 +12,11 @@ import logging
 from dotenv import load_dotenv
 import asyncio
 
-# Load environment variables
 load_dotenv()
 
-# Get API key from environment variable
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 if not ANTHROPIC_API_KEY:
-    raise ValueError("ANTHROPIC_API_KEY environment variable is not set")
+    raise ValueError("ANTROPIC key environment variable is not set")
 
 logger = logging.getLogger(__name__)
 

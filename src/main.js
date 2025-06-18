@@ -18,6 +18,7 @@ Vue.use(BootstrapVue)
 Vue.config.productionTip = false
 
 Vue.prototype.$eventHub = new Vue() // Global event bus
+Vue.prototype.$ws = null // Global WebSocket instance
 
 /* eslint-disable no-new */
 new Vue({

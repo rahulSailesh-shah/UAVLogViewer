@@ -277,7 +277,7 @@ export default {
                 return true
             }
             if (!this.messageTypes[msgName].complexFields[fieldName]) {
-                console.log('missing field ' + msgName + '.' + fieldName)
+                // console.log('missing field ' + msgName + '.' + fieldName)
                 return false
             }
             return true
@@ -355,7 +355,6 @@ export default {
                 const lastField = fields.pop()
                 for (const field of fields) {
                     if (!(field in current)) {
-                        console.log('overwriting ' + field)
                         current[field] = {}
                     }
                     current = current[field]

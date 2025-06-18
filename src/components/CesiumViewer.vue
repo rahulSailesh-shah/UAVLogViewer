@@ -85,7 +85,9 @@ import {
 } from './cesiumExtra/boundingPolygon.js'
 
 // Set Cesium token from environment variable
-Ion.defaultAccessToken = process.env.VUE_APP_CESIUM_TOKEN || ''
+Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4YzNmOTQz' +
+    'NS05MGE4LTQ5OWQtODRiZC01YjczMjU1NGUxOGEiLCJpZCI6MzExNjMwLCJpYXQiOjE3NDk3MzY4NDV9.' +
+    'F78CW4c-q1R2AtYhQmvgfc45f52fOfmFcr1QChw2G-c'
 
 const colorCoderMode = new ColorCoderMode(store)
 const colorCoderRange = new ColorCoderRange(store)
@@ -263,7 +265,7 @@ export default {
                         shadows: true,
                         // eslint-disable-next-line
                         baseLayer: new ImageryLayer.fromProviderAsync(
-                            IonImageryProvider.fromAssetId(3954)
+                            IonImageryProvider.fromAssetId(2)
                         ),
                         imageryProviderViewModels: imageryProviders,
                         orderIndependentTranslucency: false,

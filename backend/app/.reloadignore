@@ -1,0 +1,6 @@
+uploads/
+processed/
+*.log
+*.tmp
+__pycache__/
+.git/

@@ -15,8 +15,8 @@
             <p>Drop *.tlog or *.bin file here or click to browse</p>
             <input @change="onChange" id="choosefile" style="opacity: 0;" type="file">
         </div>
-        <!--<b-form-checkbox @change="uploadFile()" class="uploadCheckbox" v-if="file!=null && !uploadStarted"> Upload
-        </b-form-checkbox>-->
+        <b-form-checkbox @change="uploadFile()" class="uploadCheckbox" v-if="file!=null && !uploadStarted"> Upload
+        </b-form-checkbox>
         <VProgress v-bind:complete="transferMessage"
                    v-bind:percent="uploadpercentage"
                    v-if="uploadpercentage > -1">
@@ -152,7 +152,7 @@ export default {
             this.state.processPercentage = 100
             this.file = file
             const reader = new FileReader()
-            reader.onload = function (e) {
+            reader.onload = (e) => {
                 const data = reader.result
                 worker.postMessage({
                     action: 'parse',
@@ -160,6 +160,8 @@ export default {
                     isTlog: (file.name.endsWith('tlog')),
                     isDji: (file.name.endsWith('txt'))
                 })
+                // Store the file for later use
+                this.$eventHub.$emit('file-ready', file)
             }
             this.state.logType = file.name.endsWith('tlog') ? 'tlog' : 'bin'
             if (file.name.endsWith('.txt')) {

@@ -1,0 +1,17 @@
+fastapi==0.109.2
+uvicorn==0.27.1
+python-multipart==0.0.9
+pydantic==2.6.1
+pandas==2.2.0
+numpy==1.26.3
+pymavlink==2.4.37
+chromadb==0.4.22
+langchain-anthropic==0.1.1
+langchain-core==0.1.27
+langgraph==0.0.26
+sentence-transformers==2.5.1
+MAVdataflash>=1.0.0
+websockets>=10.0
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.0

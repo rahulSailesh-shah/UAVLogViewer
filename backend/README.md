@@ -92,7 +92,7 @@ The system maintains a `AgentState` that includes:
 1. **Clone the repository** (if not already done):
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/rahulSailesh-shah/UAVLogViewer.git
 cd UAVLogViewer/backend
 ```
 
@@ -146,22 +146,7 @@ The server will be available at:
 Create a `.env` file in the backend directory with the following variables:
 
 ```bash
-# Required: Anthropic API Key for Claude LLM
 ANTHROPIC_API_KEY=your_anthropic_api_key_here
-
-# Optional: Environment configuration
-ENVIRONMENT=development  # or production
-
-# Optional: Server configuration
-HOST=0.0.0.0
-PORT=8000
-
-# Optional: Database configuration
-CHROMA_DB_PATH=chroma_db
-COLLECTION_NAME=ardupilot_logs
-
-# Optional: Logging configuration
-LOG_LEVEL=INFO
 ```
 
 ### Getting API Keys

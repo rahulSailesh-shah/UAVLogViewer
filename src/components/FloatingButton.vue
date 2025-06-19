@@ -9,7 +9,7 @@
         <!-- Modal -->
         <div v-if="isOpen" class="chat-modal">
             <div class="chat-header">
-                <h3>Chat</h3>
+                <h3>UAV Chat</h3>
                 <button @click="toggleChat" class="close-button">&times;</button>
             </div>
 
@@ -31,20 +31,16 @@
                     </div>
                     <div class="message-timestamp">{{ formatTimestamp(new Date().toISOString()) }}</div>
                 </div>
-                <div v-if="isUploadingFile" class="message system">
-                    <div class="message-content">
-                        <div class="loading-indicator">
-                            <div class="loading-dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <div class="loading-text">Processing File...</div>
+                <div v-if="isUploadingFile">
+                    <div class="loading-indicator">
+                        <div class="loading-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
+                        <div class="loading-text">Processing File...</div>
                     </div>
-                    <div class="message-timestamp">{{ formatTimestamp(new Date().toISOString()) }}</div>
                 </div>
-
             </div>
 
             <div class="chat-input">
@@ -565,8 +561,8 @@ export default {
     transform: translate(-50%, -50%);
     width: 90%;
     height: 90%;
-    max-width: 1200px;
-    max-height: 800px;
+    max-width: 1000px;
+    max-height: 700px;
     background: rgba(253, 254, 255, 0.856);
     color: #141924;
     border-radius: 10px;
@@ -574,6 +570,8 @@ export default {
     display: flex;
     flex-direction: column;
     z-index: 1000;
+    border: 1px solid rgba(91, 100, 117, 0.76);
+    overflow: hidden;
 }
 
 .chat-header {
@@ -626,6 +624,18 @@ export default {
     margin-bottom: 5px;
     font-size: 1.1em;
     border: 1px solid rgba(91, 100, 117, 0.76);
+    animation: messageSlideIn 0.3s ease-out;
+}
+
+@keyframes messageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .message.system {
@@ -659,6 +669,12 @@ export default {
     margin-top: 5px;
 }
 
+.message.system .message-timestamp,
+.message.error .message-timestamp,
+.message.user .message-timestamp {
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .chat-input {
     padding: 20px;
     border-top: 1px solid rgba(91, 100, 117, 0.76);
@@ -675,6 +691,7 @@ export default {
     font-size: 1.1em;
     background: white;
     color: #141924;
+    transition: all 0.3s ease;
 }
 
 .chat-input input:focus {

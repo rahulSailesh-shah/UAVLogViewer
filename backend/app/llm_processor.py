@@ -12,13 +12,14 @@ import logging
 from dotenv import load_dotenv
 import asyncio
 
-load_dotenv()
+logger = logging.getLogger(__name__)
+
+env_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
+load_dotenv(env_path)
 
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
 if not ANTHROPIC_API_KEY:
     raise ValueError("ANTROPIC key environment variable is not set")
-
-logger = logging.getLogger(__name__)
 
 class ChromaDBVectorStore:
     def __init__(self, db_path="chroma_db", collection_name="ardupilot_logs"):

@@ -2,12 +2,23 @@
 
 ![log seeking](preview.gif "Logo Title Text 1")
 
- This is a Javascript based log viewer for Mavlink telemetry and dataflash logs.
- [Live demo here](http://plot.ardupilot.org).
+This is a Javascript based log viewer for Mavlink telemetry and dataflash logs.
+[Live demo here](http://plot.ardupilot.org).
+
+## Backend
+
+This project includes an AI-powered backend system for intelligent log analysis. The backend provides:
+
+-   **Agentic AI Architecture** - Multi-agent workflow for intelligent log analysis
+-   **Natural Language Queries** - Ask questions about your flight data in plain English
+-   **Vector Database Search** - Semantic search through log message definitions
+-   **Real-time Communication** - WebSocket-based communication with the frontend
+
+For detailed setup and documentation, see the [Backend README](backend/README.md).
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -31,14 +42,14 @@ npm test
 
 run the prebuilt docker image:
 
-``` bash
+```bash
 docker run -p 8080:8080 -d ghcr.io/ardupilot/uavlogviewer:latest
 
 ```
 
 or build the docker file locally:
 
-``` bash
+```bash
 
 # Build Docker Image
 docker build -t <your username>/uavlogviewer .

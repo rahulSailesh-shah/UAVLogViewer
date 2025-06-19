@@ -30,6 +30,10 @@ async def process_log_file(bin_file: str, output_dir: str) -> str:
     Process a log file and return the path to the processed JSON file
     """
     try:
+        # Ensure output directory exists
+        os.makedirs(output_dir, exist_ok=True)
+        logger.info(f"Ensured output directory exists: {output_dir}")
+
         logger.info(f"Opening log file: {bin_file}")
         analysis = DataFlash(bin_file)
 

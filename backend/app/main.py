@@ -114,6 +114,11 @@ class ConnectionManager:
             return None
 
         try:
+            # Ensure directories exist
+            UPLOAD_DIR.mkdir(exist_ok=True)
+            PROCESSED_DIR.mkdir(exist_ok=True)
+            logger.info(f"Ensured directories exist: {UPLOAD_DIR}, {PROCESSED_DIR}")
+
             # Create a unique filename using timestamp
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             file_extension = os.path.splitext(file_name)[1]
